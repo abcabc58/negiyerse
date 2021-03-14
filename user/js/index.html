@@ -1,0 +1,587 @@
+<html>
+
+<head>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LcEt74UAAAAAIc_T6dWpsRufGCvvau5Fd7_G1tY"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	</script>
+</head>
+
+<body>
+	<canvas id="canvas"></canvas>
+	<div id="overlays" style="transition: opacity 0.5s ease 0s; opacity: 1;">
+		<div id="eatedAd" style="display:none">
+			<div class="deadblock">
+				<!--<h3>You're dead</h3>-->
+				<h6>Advertisement</h6>
+				<div class="advertblock"></div>
+				<button id="continueAd" class="push_button green2">Continue</button>
+			</div>
+		</div>
+		<div id="mainMenu">
+			<div id="helloDialog">
+				<div class="form-group">
+					<h3 style="font-size: 36px;margin: 15px 0 25px;text-align:center;color:#444;font-weight:bold;" id="title">OP-BOTS.COM</h3> </div>
+				<div class="form-group">
+					<!-- Button Settings -->
+					<button type="button" class="settings-btn glyphicon glyphicon-cog" data-toggle="modal" data-target="#exampleModa2"></button>
+					<input id="nick" class="form-control" placeholder="Nickname" maxlength="15">
+					<div style="outline: none;"></div>
+					<div style="clear:both"></div>
+				</div>
+				<div style="margin: 0 0 15px 0;">
+					<button id="play-btn" class="push_button green">Play</button>
+					<button id="spectate-btn" class="push_button orange">Spectate</button>
+					<div class="clearfix"></div>
+				</div>
+				<!--<div style="display:none;" id="settings" class="checkbox">
+                <div style="margin: 6px;">
+                    <label><input id="showSkins" type="checkbox">Skins</label>
+                    <label><input id="showNames" type="checkbox">Names</label>
+                    <label><input id="darkTheme" type="checkbox">Dark</label>
+                    <label><input id="showColor" type="checkbox">Color</label>
+                    <label><input id="showMass" type="checkbox">Mass</label>
+                    <label><input id="showChat" type="checkbox">Chat</label>
+                    <label><input id="showMinimap" type="checkbox">Minimap</label>
+                    <label><input id="showPosition" type="checkbox">Position</label>
+                    <label><input id="showBorder" type="checkbox">Border</label>
+                    <label><input id="showGrid" type="checkbox">Grid</label>
+                    <label><input id="moreZoom" type="checkbox">Zoomout</label>
+                    <label><input id="fillSkin" type="checkbox">Fill Skin</label>
+                    <label><input id="backgroundSectors" type="checkbox">Background Sectors</label>
+                    <label><input id="jellyPhysics" type="checkbox">Jelly Physics</label>
+                    <label><input id="largeNicks" type="checkbox">Large Nicknames</label>
+                    <label><input id="fpsLatency" type="checkbox">FPS & Ping</label>
+                    <label>
+                        <input id="playSounds" type="checkbox">Sounds
+                        <input id="soundsVolume" type="range" min="0" max="1" step="any">
+                    </label>
+                </div>
+            </div>-->
+				<div id="rightOptions">
+					<h3 class="headtext">Select Game Mode</h3>
+					<div class="gamemodes">
+						<button id="ffa" class="gamemode" onclick=''><span>FFA</span></button>
+						<button id="exp" class="gamemode" onclick=''><span>EXP</span></button>
+						<button id="party" class="gamemode" onclick=''><span>PARTY</span></button>
+					</div>
+					<!--
+                <button onclick='setserver("91.134.153.207:8080")'>TEST SERVER</button>
+            </div>
+
+
+
+            
+            <div id="leftOptions">
+                <div>
+                    
+                    
+                    
+                    <%- panel_data %>
+
+
+                </div>
+            </div>
+
+            
+
+            
+            <div id="footer">
+                <a class="terms" href="https://policies.google.com/privacy">Privacy Policy</a>
+                <a class="terms" href="https://policies.google.com/terms">Terms Of Service</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+                <!-- Modal Settings -->
+					<div class="modal fade" id="exampleModa2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+									<button style="outline: none;" type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+								</div>
+								<div class="modal-body">
+									<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+										<li class="nav-item" role="presentation"> <a class="nav-link active" id="pills-option-tab" data-toggle="pill" href="#pills-option" role="tab" aria-controls="pills-option" aria-selected="false">Options</a> </li>
+										<li class="nav-item" role="presentation"> <a class="nav-link" id="pills-keybinds-tab" data-toggle="pill" href="#pills-keybinds" role="tab" aria-controls="pills-keybinds" aria-selected="false">Keybinds</a> </li>
+									</ul>
+									<div class="tab-content scrollbar" id="style-6" id="pills-tabContent" style="overflow: auto;height: 349px;overflow-x: hidden;">
+										<div class="tab-pane fade show active" id="pills-option" role="tabpanel" aria-labelledby="pills-option-tab">
+											<div class="option">
+												<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+													<li class="nav-item" role="presentation"><a class="nav-link" id="pills-keybinds-tab" data-toggle="pill" onclick="window.changeSettings('low')" role="tab" aria-controls="pills-keybinds" aria-selected="false">Low</a> </li>
+													<li class="nav-item" role="presentation"><a class="nav-link" id="pills-keybinds-tab" data-toggle="pill" onclick="window.changeSettings('medium')" role="tab" aria-controls="pills-keybinds" aria-selected="false">Medium</a></li>
+													<li class="nav-item" role="presentation"><a class="nav-link" id="pills-keybinds-tab" data-toggle="pill" onclick="window.changeSettings('high')" role="tab" aria-controls="pills-keybinds" aria-selected="false">High</a></li>
+													<li class="nav-item" role="presentation"><a class="nav-link" id="pills-keybinds-tab" data-toggle="pill" onclick="window.changeSettings('ultra')" role="tab" aria-controls="pills-keybinds" aria-selected="false">Ultra</a></li>
+												</ul>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showSkins" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Skins</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showNames" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Names</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="darkTheme" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Dark Theme</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showColor" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Color</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showMass" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Mass</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showChat" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Chat</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showFood" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Food</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showMinimap" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Minimap</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showGrid" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Grid</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="showBorder" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Show Map Border</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="moreZoom" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Zoom</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="fillSkin" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Fill Skin</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="backgroundSectors" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Bg Sectors</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="jellyPhysics" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Jelly Physic</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="classyEffect" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Classy Effect</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="cellBorders" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Cell Border</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="textBorders" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">Text Stroke</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-3">
+															<input id="fpsLatency" type="checkbox" class="checkbox">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+														<div class="checkbox-lable">FPS & Ping</div>
+													</div>
+												</div>
+												<!--
+                                        <div class="toggle-button-cover">
+                                            <div class="button-cover">
+                                                <div class="button r" id="button-3">
+                                                    <input id="showPosition" type="checkbox" class="checkbox">
+                                                    <div class="knobs"></div>
+                                                    <div class="layer"></div>
+                                                </div>
+                                                <div class="checkbox-lable">Show Position</div>
+                                            </div>
+                                        </div>
+                                        <div class="toggle-button-cover">
+                                            <div class="button-cover">
+                                                <div class="button r" id="button-3">
+                                                    <input id="largeNicks" type="checkbox" class="checkbox">
+                                                    <div class="knobs"></div>
+                                                    <div class="layer"></div>
+                                                </div>
+                                                <div class="checkbox-lable">large Nicknames</div>
+                                            </div>
+                                        </div>
+                                        <div class="toggle-button-cover">
+                                            <div class="button-cover">
+                                                <div class="button r" id="button-3">
+                                                    <input id="soundsVolume" type="checkbox" class="checkbox">
+                                                    <div class="knobs"></div>
+                                                    <div class="layer"></div>
+                                                </div>
+                                                <div class="checkbox-lable">Sounds Volume</div>
+                                            </div>
+                                        </div>
+                                    -->
+												<!--
+                                        <p style="margin-top:0;"><label><input id="showSkins" type="checkbox">Show Skins</label></p>
+                                        <p style="margin-top:0;"><label><input id="showNames" type="checkbox">Show Names</label></p>
+                                        <p><label><input id="darkTheme" type="checkbox">Dark Theme</label></p>
+                                        <p><label><input id="showColor" type="checkbox">Show Color</label></p>
+                                        <p><label><input id="showMass" type="checkbox">Show Mass</label></p>
+                                        <p><label><input id="showChat" type="checkbox">Show Chat</label></p>
+                                        <p><label><input id="showMinimap" type="checkbox">Show Minimap</label></p>
+                                        <p><label><input id="showPosition" type="checkbox">Show Position</label></p>
+                                        <p><label><input id="showGrid" type="checkbox">Show Grid</label></p>
+                                        <p><label><input id="showBorder" type="checkbox">Show Map Border</label></p>
+                                        <p><label><input id="moreZoom" type="checkbox">Zoomout</label></p>
+                                        <p><label><input id="fillSkin" type="checkbox">Fill Skin</label></p>
+                                        <p><label><input id="backgroundSectors" type="checkbox">Background Sectors</label></p>
+                                        <p><label><input id="jellyPhysics" type="checkbox">Jelly Physics</label></p>
+                                        <p><label><input id="cellBorders" type="checkbox">Cell borders</label></p>
+                                        <p><label><input id="textBorders" type="checkbox">Text stroke</label></p>
+                                        <p style="margin-bottom:0;"><label><input id="largeNicks" type="checkbox">Large Nicknames</label></p>
+                                        <p style="margin-bottom:0;"><label><input id="fpsLatency" type="checkbox">FPS & Ping</label></p>
+                                        <p>
+                                            <label>
+                                                <input id="playSounds" type="checkbox">Sounds
+                                                <input id="soundsVolume" type="range" min="0" max="1" step="any">
+                                            </label>
+                                        </p>
+                                    -->
+											</div>
+										</div>
+										<div class="tab-pane fade" id="pills-keybinds" role="tabpanel" aria-labelledby="pills-keybinds-tab">
+											<div class="keybinds">
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="macroFeed">null </div>
+														</div>
+														<div class="checkbox-lable">Macro Feed</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="specKey">null </div>
+														</div>
+														<div class="checkbox-lable">Spectate Switch</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="doubleSplit"> null</div>
+														</div>
+														<div class="checkbox-lable">Double Split</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="quadSplit">null </div>
+														</div>
+														<div class="checkbox-lable">Quad Split</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="splitBots">null </div>
+														</div>
+														<div class="checkbox-lable">Split Bots</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="ejectBots">null </div>
+														</div>
+														<div class="checkbox-lable">Eject Bots</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="freezeBots">null </div>
+														</div>
+														<div class="checkbox-lable">Freeze Bots</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="stopMoving">null </div>
+														</div>
+														<div class="checkbox-lable">Stop Moving</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="virusBoost">null </div>
+														</div>
+														<div class="checkbox-lable">Virus Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="speedBoost">null </div>
+														</div>
+														<div class="checkbox-lable">Speed Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="explodeBoost"> null</div>
+														</div>
+														<div class="checkbox-lable">Explode Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="freezeKey">null </div>
+														</div>
+														<div class="checkbox-lable">Freeze Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="mergeKey">null </div>
+														</div>
+														<div class="checkbox-lable">Merge Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="zombyKey">null </div>
+														</div>
+														<div class="checkbox-lable">Zomby Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="growKey">null </div>
+														</div>
+														<div class="checkbox-lable">Grow Boost</div>
+													</div>
+												</div>
+												<div class="toggle-button-cover">
+													<div class="button-cover-more">
+														<div class="button r button-more" id="button-3">
+															<div class="keybinds-key" onclick="window.replaceText(this);" id="fastKey">null </div>
+														</div>
+														<div class="checkbox-lable">Instant Feed</div>
+													</div>
+												</div>
+												<!--<div class="keybinds-box">
+                                                <p class="keybinds-value">Macro Feed</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="macroFeed" >null</p>
+                                            </div>
+                                        
+    
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Spectate Switch</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="specKey" >null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Double Split</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="doubleSplit">null</p>
+                                            </div>
+                                        
+                                        
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Quad Split</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="quadSplit">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Split Bots</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="splitBots">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Eject Bots</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="ejectBots">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Freeze Bots</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="freezeBots">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Stop Move</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="stopMoving">null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Virus Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="virusBoost">null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Speed Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="speedBoost">null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Explode Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="explodeBoost">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Freeze Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="freezeKey">null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Merge Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="mergeKey">null</p>
+                                            </div>
+                                       
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Zomby Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="zombyKey">null</p>
+                                            </div>
+
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Grow Boost</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="growKey">null</p>
+                                            </div>
+                                        
+                                            <div class="keybinds-box">
+                                                <p class="keybinds-value">Feeder Key</p>
+                                                <p class="keybinds-key" onclick="window.replaceText(this);" id="fastKey">null</p>
+                                            </div>--></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
